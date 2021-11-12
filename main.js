@@ -3,7 +3,6 @@ const nextBtn = document.getElementById('next-page')
 const numberOfPage = document.querySelector('.number-of-page')
 let pageNumber = localStorage.getItem('page') || 1
 numberOfPage.textContent = pageNumber
-const post = document.querySelector('.post')
 const infoPost = document.querySelector('.info-post')
 const titlePost = document.querySelector('.title')
 const userName = document.querySelector('.name')
@@ -99,7 +98,6 @@ const refreshIdAndNumber = () => {
 
 // Пагинация
 nextBtn.addEventListener('click', () => {
-    post.innerHTML=''
     pageNumber++
     localStorage.setItem('page', pageNumber);
     posts.innerHTML=''
@@ -110,7 +108,6 @@ nextBtn.addEventListener('click', () => {
 })
 
 prevBtn.addEventListener('click', () => {
-    post.innerHTML=''
     pageNumber--
     localStorage.setItem('page', pageNumber);
     posts.innerHTML=''
