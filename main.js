@@ -3,6 +3,7 @@ const nextBtn = document.getElementById('next-page')
 const numberOfPage = document.querySelector('.number-of-page')
 let pageNumber = localStorage.getItem('page') || 1
 numberOfPage.textContent = pageNumber
+const post = document.querySelector('.post')
 const infoPost = document.querySelector('.info-post')
 const titlePost = document.querySelector('.title')
 const userName = document.querySelector('.name')
@@ -38,6 +39,11 @@ const getData = async (url) => {
     }
     return await response.json()
 }
+
+const clearData = () => {
+    comTitle.innerHTML = ''
+    comments.innerHTML = ''  
+}
 getPage = () => getData(`https://jsonplaceholder.typicode.com/posts?_page=${pageNumber}&_limit=10`)
 .then((data) => data.forEach(item => {
     const elem = document.createElement('li')
@@ -50,7 +56,7 @@ getPage = () => getData(`https://jsonplaceholder.typicode.com/posts?_page=${page
                 userMail.textContent = data.email
             })
         bodyPost.textContent = item.body
-        
+        clearData()
         getComment(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`)
             .then(data => data.forEach(item => {
                 comTitle.textContent = 'Comments:'
@@ -93,18 +99,22 @@ const refreshIdAndNumber = () => {
 
 // Пагинация
 nextBtn.addEventListener('click', () => {
+    post.innerHTML=''
     pageNumber++
     localStorage.setItem('page', pageNumber);
     posts.innerHTML=''
+    clearData()
     disablePrevBtn()
     refreshIdAndNumber()
     getPage()
 })
 
 prevBtn.addEventListener('click', () => {
+    post.innerHTML=''
     pageNumber--
     localStorage.setItem('page', pageNumber);
     posts.innerHTML=''
+    clearData()
     disablePrevBtn()
     refreshIdAndNumber()
     getPage()
