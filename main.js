@@ -39,10 +39,6 @@ const getData = async (url) => {
     return await response.json()
 }
 
-const clearData = () => {
-    comTitle.innerHTML = ''
-    comments.innerHTML = ''  
-}
 getPage = () => getData(`https://jsonplaceholder.typicode.com/posts?_page=${pageNumber}&_limit=10`)
 .then((data) => data.forEach(item => {
     const elem = document.createElement('li')
@@ -55,7 +51,8 @@ getPage = () => getData(`https://jsonplaceholder.typicode.com/posts?_page=${page
                 userMail.textContent = data.email
             })
         bodyPost.textContent = item.body
-        clearData()
+        comTitle.innerHTML = ''
+        comments.innerHTML = '' 
         getComment(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`)
             .then(data => data.forEach(item => {
                 comTitle.textContent = 'Comments:'
@@ -101,7 +98,6 @@ nextBtn.addEventListener('click', () => {
     pageNumber++
     localStorage.setItem('page', pageNumber);
     posts.innerHTML=''
-    clearData()
     disablePrevBtn()
     refreshIdAndNumber()
     getPage()
@@ -111,7 +107,6 @@ prevBtn.addEventListener('click', () => {
     pageNumber--
     localStorage.setItem('page', pageNumber);
     posts.innerHTML=''
-    clearData()
     disablePrevBtn()
     refreshIdAndNumber()
     getPage()
