@@ -1,0 +1,55 @@
+.title-posts *{
+    cursor: pointer;
+}
+
+.pagenumbers{
+    display: flex;
+}
+
+.pagenumbers *{
+    margin-right: 10px;
+}
+
+button{
+    cursor: pointer;
+}
+
+.line{
+    width: 100%;
+    height: 30px;
+    background: #858482;
+    margin-top: 20px;
+}
+
+/* Пост */
+
+.title{
+    font-size: 18px;
+    margin: 10px 0px 5px 10px;
+}
+.contact{
+    display: flex;
+}
+
+.name{
+    margin: 0px 40px 0px 10px
+}
+
+.body{
+    margin: 10px 0px 30px 30px;
+}
+
+.comments-title{
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: rgb(45, 189, 121)
+}
+
+.comment-user-email{
+    margin: 5px 0px 5px 0px;
+}
+
+.comments-body{
+    margin-bottom: 30px;
+}

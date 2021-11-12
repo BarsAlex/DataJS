@@ -5,16 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <div class="post">
+    <header>
         <h1>Посты</h1>
-        <ul>
-            <li></li>
-        </ul>
-        <button>Назад</button>
-        <button>Далее</button>
-    </div>
+    </header>
+    <main>
+        <div class="list">
+            <ul class="title-posts"></ul>
+        </div>
+        <div class="pagenumbers" id="pagination">
+            <button id="previous-page">Назад</button>
+            <div class="number-of-page"></div>
+            <button id="next-page">Далее</button>
+        </div>
+        <div class="line"></div>
+        <div class="info-post">
+            <div class="title"></div>
+            <div class="contact">
+                <div class="name"></div>
+                <div class="email"></div>
+            </div>
+            <div class="body"></div>
+            <div class="comments-title"></div>    
+            <div class="comments">
+                <div class="comment-user-name"></div>
+                <div class="comment-user-email"></div>
+                <div class="comments-body"></div>
+            </div>
+        </div>
+    </main>
     <script src="main.js"></script>
 </body>
 </html>
