@@ -56,12 +56,15 @@ getPage = () => getData(`https://jsonplaceholder.typicode.com/posts?_page=${page
         getComment(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`)
             .then(data => data.forEach(item => {
                 comTitle.textContent = 'Comments:'
+                // Вывод имени коментатора и просвоение класса
                 const comUserName = document.createElement('div')
                 comUserName.classList.add('comment-user-name')
                 comUserName.textContent = item.name
+                // Вывод почты коментатора и просвоение класса
                 const comUserEmail = document.createElement('div')
                 comUserEmail.classList.add('comment-user-email')
                 comUserEmail.textContent = item.email
+                // Вывод комментария коментатора и просвоение класса
                 const comBody = document.createElement('div')
                 comBody.classList.add('comments-body')
                 comBody.textContent = item.body
